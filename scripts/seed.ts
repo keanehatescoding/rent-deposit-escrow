@@ -81,7 +81,7 @@ async function main(): Promise<void> {
 
   const existingDeposit = await db.query.deposits.findFirst({ where: eq(deposits.tenancyId, tenancy.id) });
   if (!existingDeposit) {
-    await db.insert(deposits).values({ tenancyId: tenancy.id, amountKes: DEMO.tenancy.depositKes });
+    await db.insert(deposits).values({ tenancyId: tenancy.id, amountKes: tenancy.depositKes });
     console.log("Deposit created.");
   }
 
