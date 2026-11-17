@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { and, eq, sql } from "drizzle-orm";
 import { users, properties, tenancies, deposits } from "../src/db/schema";
 import { db, getPool } from "../src/db/index";
 
@@ -41,24 +41,36 @@ async function main(): Promise<void> {
 
   console.log("Seeding demo data (SEED_DEMO=1)...");
 
-  let landlord = await db.query.users.findFirst({ where: eq(users.email, DEMO.landlord.email) });
+  let landlord = await db.query.users.findFirst({
+    where: eq(sql`lower(${users.email})`, sql`lower(${DEMO.landlord.email})`),
+  });
   if (!landlord) {
     const [row] = await db.insert(users).values(DEMO.landlord).returning();
     landlord = row;
   }
 
-  let tenant = await db.query.users.findFirst({ where: eq(users.email, DEMO.tenant.email) });
+  let tenant = await db.query.users.findFirst({
+    where: eq(sql`lower(${users.email})`, sql`lower(${DEMO.tenant.email})`),
+  });
   if (!tenant) {
     const [row] = await db.insert(users).values(DEMO.tenant).returning();
     tenant = row;
   }
 
-  const [property] = await db
-    .insert(properties)
-    .values({ ...DEMO.property, landlordId: landlord.id })
-    .returning();
+  let property = await db.query.properties.findFirst({
+    where: and(eq(properties.label, DEMO.property.label), eq(properties.landlordId, landlord.id)),
+  });
+  if (!property) {
+    const [row] = await db
+      .insert(properties)
+      .values({ ...DEMO.property, landlordId: landlord.id })
+      .returning();
+    property = row;
+  }
 
-  let tenancy = await db.query.tenancies.findFirst({ where: eq(tenancies.propertyId, property.id) });
+  let tenancy = await db.query.tenancies.findFirst({
+    where: and(eq(tenancies.propertyId, property.id), eq(tenancies.tenantId, tenant.id)),
+  });
   if (!tenancy) {
     const [row] = await db
       .insert(tenancies)
