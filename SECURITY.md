@@ -2,20 +2,41 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+Only the latest version on the default branch (`main`) is currently
+supported with security updates. The project is pre-release (0.1.x), so
+older commits are not patched.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| 0.1.x (main) | :white_check_mark: |
+| < 0.1   | :x:                |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+Please report security vulnerabilities privately. Do **not** open a public
+issue or pull request for a suspected vulnerability.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+The accepted private reporting channel for this project is GitHub's private
+vulnerability reporting:
+
+https://github.com/keanehatescoding/rent-deposit-escrow/security/advisories/new
+
+You can also reach the maintainer directly through GitHub at
+[@keanehatescoding](https://github.com/keanehatescoding).
+
+What to include in a report:
+- The affected version or commit, and where applicable the file/component.
+- Steps to reproduce, or a proof of concept.
+- The expected impact and severity.
+- Any suggested mitigation or fix.
+
+What to expect:
+- An acknowledgement within 3 business days.
+- A status update within 7 days, and further updates at least every 7 days
+  until the issue is resolved or declined.
+- If the report is accepted: we will work on a fix, coordinate disclosure,
+  and credit the reporter in the advisory unless they ask to remain
+  anonymous.
+- If the report is declined: we will explain why it does not qualify as a
+  security vulnerability (or is out of scope) and, where applicable, point
+  you to the appropriate channel.
