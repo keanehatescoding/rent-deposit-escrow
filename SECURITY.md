@@ -2,13 +2,13 @@
 
 ## Supported Versions
 
-Only the latest version on the default branch (`main`) is currently
+Only the latest version on the default branch (`master`) is currently
 supported with security updates. The project is pre-release (0.1.x), so
 older commits are not patched.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 0.1.x (main) | :white_check_mark: |
+| 0.1.x (master) | :white_check_mark: |
 | < 0.1   | :x:                |
 
 ## Reporting a Vulnerability
@@ -20,9 +20,6 @@ The accepted private reporting channel for this project is GitHub's private
 vulnerability reporting:
 
 https://github.com/keanehatescoding/rent-deposit-escrow/security/advisories/new
-
-You can also reach the maintainer directly through GitHub at
-[@keanehatescoding](https://github.com/keanehatescoding).
 
 What to include in a report:
 - The affected version or commit, and where applicable the file/component.
