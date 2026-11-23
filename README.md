@@ -35,10 +35,9 @@ What is here:
 - `src/db/schema.ts` — Drizzle Postgres schema specific to this domain
 - `src/db/index.ts` — pooled `pg` + Drizzle client
 - `drizzle.config.ts`, `next.config.ts`, `tsconfig.json`, `eslint.config.mjs`, `postcss.config.mjs`
-- `src/app/globals.css`, `.gitignore`, `.env.example`
+- `src/app/globals.css`, `src/app/layout.tsx`, `src/app/page.tsx`, `.gitignore`, `.env.example`
 
 What is still a stub:
-- `src/app/layout.tsx` + `src/app/page.tsx` — scaffold against the installed Next version (see `node_modules/next/dist/docs/`); the `odpc-compliance-saas` siblings are a working reference.
 - Auth (sessions, password reset, email verify) — copy and adapt the `lib/session.ts`, `lib/password.ts`, `lib/email-verification.ts` set from `odpc-compliance-saas`.
 - Payments (M-Pesa Daraja / Paystack / card) — stack-specific, add per project.
 - `scripts/migrate.ts` and `scripts/seed.ts` — included; run via `npm run db:migrate` and `npm run db:seed` (set `SEED_DEMO=1` for demo data).
